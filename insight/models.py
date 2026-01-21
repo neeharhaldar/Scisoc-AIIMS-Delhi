@@ -40,7 +40,7 @@ def insight_delete(sender,instance, **kwargs):
 class Sponsor(models.Model):
     insight = models.ForeignKey(Insight,on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
-    logo = models.ImageField(upload_to='insight/images')
+    logo = models.ImageField(upload_to='insight/images',null=True,blank=True)
 
     def __str__(self):
         return self.name
@@ -55,7 +55,7 @@ def insight_delete(sender,instance, **kwargs):
 class Speaker(models.Model):
     insight = models.ForeignKey(Insight,on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
-    photo = models.ImageField(upload_to='insight/images')
+    photo = models.ImageField(upload_to='insight/images',null=True,blank=True)
     position = models.CharField(max_length=50)
 
     def __str__(self):
@@ -73,7 +73,7 @@ class Workshop(models.Model):
     insight = models.ForeignKey(Insight,on_delete=models.CASCADE)
     title = models.CharField("Workshop Title",max_length=50)
     desc = models.TextField("More About The Workshop")
-    img = models.ImageField("Cover Photo",upload_to='insight/workshop/')
+    img = models.ImageField("Cover Photo",upload_to='insight/workshop/',null=True,blank=True)
     ws_time = models.DateTimeField("Workshop Date And Time")
     reg_link = models.URLField("External Registration Link",null=True,blank=True)
     link = models.URLField("Link If Conducted Online",null=True,blank=True)
@@ -119,7 +119,7 @@ class Events(models.Model):
     insight = models.ForeignKey(Insight,on_delete=models.CASCADE)
     title = models.CharField("Event Title",max_length=50)
     desc = models.TextField("More About The Event")
-    img = models.ImageField("Cover Photo",upload_to='insight/event/')
+    img = models.ImageField("Cover Photo",upload_to='insight/event/',null=True,blank=True)
     event_time = models.DateTimeField("Event Date And Time")
     reg_link = models.URLField("External Registration Link",null=True,blank=True)
     link = models.URLField("Link (If Conducted Online)",null=True,blank=True)

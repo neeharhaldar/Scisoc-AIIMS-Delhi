@@ -5,12 +5,12 @@ from .models import Insight,Workshop,RegisterWorkshop,Events,RegisterEvent,Insig
 class WorkShopList(admin.StackedInline):
     readonly_fields = ('id',)
     model = Workshop
-    extra = 1
+    extra = 0
 
 class EventsList(admin.StackedInline):
     readonly_fields = ('id',)
     model = Events
-    extra = 1
+    extra = 0
 
 class InsightAdmin(admin.ModelAdmin):
     readonly_fields = ('view_image',)
